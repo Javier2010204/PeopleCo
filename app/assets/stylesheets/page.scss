@@ -1,0 +1,127 @@
+@import "common";
+@import "colors";
+@import "flexboxgrid";
+
+//ordenar alfabeticamente
+
+/*
+	es recomendable subir a un CDN los estilos en produccion
+*/
+
+html,body{
+	margin: 0px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 18px;
+	overflow-x: hidden;
+}
+header{
+	.init{
+		@extend .pull-right;
+		@extend .relative;
+		top: 2em;
+		padding-right: 10px;
+	}
+	.restant-time{
+		span{
+			@extend .inline-block;
+			vertical-align: top;
+			line-height: 1em;
+			font-size: 99px;
+			span{
+				display: block;
+				@extend .small-text;
+				@extend .uppercase;
+				@extend .bold;
+				@extend .text-right;
+				padding-right: 10px;
+			}
+		}
+	}
+}
+//a
+//b
+.btn{
+	@extend .bold;
+	@extend .large-padding;
+	@extend .no-border;
+	@extend .no-decoration;
+}
+.btn:hover{
+	@extend .white-text;
+}
+.bullet-points{
+	@extend .row;
+	@extend .no-padding;
+	li{
+		@extend .col-xs-10;
+		@extend .col-md-6;
+		@extend .inline-block;
+		@extend .relative;
+		width: 50%;
+		margin-right: -4px;
+		&:nth-child(n+3){
+			@extend .top-space;
+		}
+		&::before{
+			content: "";
+			height: 0.5em;
+			width: 0.5em;
+			top: 8px;
+			left: -5px;
+			@extend .absolute;
+			@extend .black;
+			@extend .circle;
+		}
+	}
+}
+//c
+.card{
+	@extend .white;
+	@extend .large-padding;
+}
+.container-80{
+	width: 80%;
+	margin: 0 auto;
+}
+//d
+//e
+//f
+//g
+//h
+//j
+//k
+//l
+//m
+.move-up{
+	@extend .relative;
+	top: -50px;
+}
+//n
+//o
+//p
+//q
+//r
+//s
+.separator{
+	& > div:nth-child(1){
+		padding-right: 2em;
+		border-right: solid 1px #B7BABF;
+	}
+	& > div:nth-child(2){
+		padding-left: 2em;
+	}
+}
+//t
+//u
+//v
+//w
+
+.workshop-background{
+	background: linear-gradient(to bottom, #6d7783 0%, #49505a 100%);
+	padding-bottom: 100px;
+}
+
+//x
+//y
+//z

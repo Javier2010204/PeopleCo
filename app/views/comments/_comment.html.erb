@@ -1,0 +1,6 @@
+<li id="comment" class="card top-space">
+	<%= comment.user.username %>
+	<%= comment.body %>
+	<%= link_to "eliminar", post_comment_path(comment), method: :delete , class: "" %>
+	<%= link_to "editar", edit_post_comment_path(comment), class: "" %>
+</li>

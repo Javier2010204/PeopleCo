@@ -1,0 +1,142 @@
+@import "colors";
+@import "common";
+@import "flexboxgrid";
+
+//a
+//b
+.btn{
+	@extend .bold;
+	@extend .large-padding;
+	@extend .no-border;
+	@extend .no-decoration;
+	font-size: 18px;
+}
+.btn:hover{
+	cursor: pointer;
+}
+//c
+.card{
+	@extend .large-padding;
+	@extend .white;
+	@extend .z-depth;
+	@extend .round--25;
+}
+//d
+.dropdown{
+	@extend .relative;
+	@extend .inline-block;
+	.dropbtn{
+		@extend .no-border;
+		background: transparent;
+		cursor: pointer;
+	}
+	.dropcontent{
+		@extend .absolute;
+		@extend .white;
+		right: 0;
+		display: none;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		min-width: 16px;
+		z-index: 1;
+	}
+	.dropcontent a{
+		@extend .black-text;
+		@extend .large-padding;
+		@extend .no-decoration;
+		display: block;
+	}
+	.dropcontent a:hover{
+		@extend .yellow;
+		@extend .bold;
+	}
+	&:hover .dropcontent{
+		display: block;
+	}
+}
+//e
+//f
+
+.form-group{
+	@extend .large-padding;
+	.form-control{
+		@extend .gray-light;
+		@extend .full-width;
+		box-shadow: 5px 5px 8px #DEDFE1;
+		padding: 15px;
+		border: none;
+		border-radius: 25px;
+	}
+	.form-control:focus{
+		outline-style: none;
+	}
+}
+
+
+//g
+//h
+//i
+//j
+//k
+//l
+.links{
+	a{
+		@extend .black-text;	padding: 1em;
+		@extend .bold;
+		padding-left: 10px;
+	}
+}
+.login-background{
+	background: linear-gradient(to bottom, #F2CD5C 0%,#F29F05 100%);
+}
+#login{
+	@extend .form-group;
+	.form-control{
+		width: 80%;
+	}
+}
+//m
+//n
+.navigation{
+	@extend .yellow;
+	ul{
+		list-style-type: none;
+		@extend .no-padding;
+		@extend .no-margin;
+		overflow: hidden;
+		li{
+			@extend .pull-left;
+			a{
+				display: block;
+				@extend .black-text;
+				@extend .no-decoration;
+				@extend .text-center;
+				padding: 14px 16px;
+			}
+			a:hover{
+				@extend .underline;
+			}
+			&:nth-child(1){
+				@extend .bold;
+			}
+		}
+	}
+}
+//o
+//p
+
+//q
+//r
+.round--25{
+	border-radius: 25px;
+}
+//s
+//t
+textarea{
+	resize: none;
+}
+//u
+//v
+//w
+//x
+//y
+//z

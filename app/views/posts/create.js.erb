@@ -1,0 +1,6 @@
+<% if @post.errors.any? %>
+    console.log(errors)
+<% else %>
+    document.querySelector('#posts').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render @post) %>') ;
+    document.querySelector('#post_body').value = "";
+<% end %>

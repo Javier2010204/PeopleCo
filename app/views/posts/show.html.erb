@@ -1,0 +1,26 @@
+<div class="row center-xs">
+	<div class="col-xs-12 col-sm-8">
+		<div class="box">
+			<%= render @post %>		
+		</div>
+	</div>
+</div>
+<h2>Comentarios</h2>
+<div class="row center-xs top-space">
+	<div class="col-xs-12 col-sm-8">
+		<div class="box">
+			<%= render 'comments/form' %>
+		</div>
+	</div>
+</div>
+<div class="row center-xs top-space">
+	<div class="col-xs-12 col-sm-8">
+		<div class="box">
+			<div id="comments">
+				<%= render @comments %>
+			</div>	
+		</div>
+	</div>
+</div>
+
+

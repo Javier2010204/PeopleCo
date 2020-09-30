@@ -1,0 +1,39 @@
+<div class="full-height row center-xs middle-xs login-background" id="login">
+  <div class="col-xs-10 col-md-6">
+    <div class="box card">
+      <div class="top-space--2 black-text">
+        <h2 class="title no-margin underline">Iniciar Sesión</h2>
+        <p>Comparte tus ideas para crecer, colaborar y llegar mas lejos con tus proyectos</p>
+      </div>
+      <div class="top-space--2">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, placeholder: "correo electronico", autofocus: true, autocomplete: "email", class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, placeholder: "contraseña", autocomplete: "current-password", class: 'form-control' %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="top-space">
+          <%= f.submit "Ingresar", class:"btn btn--yellow black-text" %>
+        </div>
+      <% end %>
+      </div>
+      <div class="top-space--2 links">
+        Aún no tengo cuenta <%= link_to "  Crear cuenta", new_registration_path(resource_name) , class: "" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

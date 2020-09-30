@@ -1,0 +1,17 @@
+<nav class="navigation">
+	<ul>
+		<li>
+			<%= link_to "PeopleCo", authenticated_root_path , class: "" %>
+		</li>
+		<li>
+			<%= link_to "Publicaciones", posts_path , class: "" %>
+		</li>
+		<li>
+			<%= link_to "Mi perfil", current_user , class: "" %>
+		</li>
+		<li>
+			<%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, class: "" %>
+		</li>
+	</ul>
+</nav>
+

@@ -1,0 +1,7 @@
+<%= form_for(@usuario) do |form| %>
+	<%= form.file_field :my_photos %>
+	<%= form.text_field :username %>
+	<%= form.submit "editar" %>
+<% end %>
+
+<%= @usuario.username %>

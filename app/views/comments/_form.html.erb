@@ -1,0 +1,21 @@
+<%= form_with(model: [@post, @comment], local: true, remote: true) do |form| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_area :body, class: 'form-control', placeholder: 'Escribe un comentario...' %>
+  </div>
+
+  <div class="text-right">
+    <%= form.submit 'Comentar', class: 'btn btn--yellow' %>
+  </div>
+<% end %>

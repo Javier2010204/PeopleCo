@@ -1,0 +1,48 @@
+<div class="row top-space center-xs card">
+	<div class="col-xs-10">
+		<div class="box">
+			<div class="row">
+				<div class="col-xs-6 start-xs">
+					<div class="box">
+						<p class="bold yellow-text"><%=link_to post.user.username, post.user, class: 'no-decoration yellow-text' %></p>
+					</div>
+				</div>
+				<div class="col-xs-6 end-xs">
+					<div class="box">
+						<div class="dropdown">
+							<button class="dropbtn">
+								<i class="fa fa-ellipsis-v"></i>
+							</button>
+							<div class="dropcontent">
+								<%= link_to "Eliminar", post_path(post), method: :delete , class: "" %>
+								<%= link_to "Editar", edit_post_path(post), class: "" %>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="box">
+						<%= link_to post.body, post, class: "big-text bold no-decoration black-text" %>
+					</div>
+				</div>
+			</div>
+			<div class="row top-space end-xs">
+				<div class="col-xs-12 col-sm-8">
+					<div class="box">
+						<p><i class="fa fa-comments-o"></i><span class="bold"><%= post.comments.count %></span></p>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
