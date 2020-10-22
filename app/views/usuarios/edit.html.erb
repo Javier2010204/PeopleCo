@@ -1,8 +1,27 @@
-<%= form_for(@usuario) do |form| %>
-	<%= form.file_field :my_photos %>
-	<%= form.file_field :my_cover %>
-	<%= form.text_field :username %>
-	<%= form.submit "editar" %>
-<% end %>
-
-<%= @usuario.username %>
+<div class="row center-xs middle-xs">
+	<div class="col-xs-12 col-md-6">
+		<div class="box card">
+			<h1 class="top-space black-text bold top-space">Editar mi perfil</h1>
+			<%= form_for(@usuario) do |form| %>
+				<div class="form-group">
+					<% if @usuario.photos.attached?%>
+						<%= circle_img(@usuario.photos, 100)%>
+					<% end %>
+					<%= form.label "Avatar"%>
+					<%= form.file_field :my_photos %>
+				</div>
+				<div class="form-group">
+					<% if @usuario.covers.attached?%>
+						<%= circle_img(@usuario.covers, 100)%>
+					<% end %>
+					<%= form.label "Cover"%>
+					<%= form.file_field :my_cover %>
+				</div>
+				<div class="form-group">
+					<%= form.text_field :username, class:"form-control width--80" %>
+				</div>
+				<%= form.submit "editar", class: "btn btn--yellow black-text top-space" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -4,7 +4,6 @@ class Friendship < ApplicationRecord
 	belongs_to :friend, class_name: "User"
 	validates :user_id, uniqueness:{scope: :friend_id}
 
-
   def self.friends?(user, friend)
   	return true if user == friend
   	return Friendship.where(user:user, friend:friend).or(Friendship.where(user:friend, friend:user)).any?

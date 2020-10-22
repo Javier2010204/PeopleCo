@@ -25,10 +25,10 @@
 								<i class="fa fa-user-plus"></i>
 								Agregar a mis amigos
 							<%end%>
-							<div class="toast">
-								
-							</div>
 						<%end%>
+						<% if @usuario == current_user%>
+							<%=link_to "Editar mi perfil", edit_user_path(current_user), class: "btn btn--yellow black-text" %>
+						<% end %>
 					</div>
 				</div>
 			</div>

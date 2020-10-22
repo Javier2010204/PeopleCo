@@ -73,7 +73,6 @@
 	@extend .large-padding;
 	.form-control{
 		@extend .gray-light;
-		@extend .full-width;
 		box-shadow: 5px 5px 8px #DEDFE1;
 		padding: 15px;
 		border: none;
@@ -93,7 +92,8 @@
 //l
 .links{
 	a{
-		@extend .black-text;	padding: 1em;
+		@extend .black-text;	
+		padding: 1em;
 		@extend .bold;
 		padding-left: 10px;
 	}
@@ -153,6 +153,9 @@ textarea{
 //u
 //v
 //w
+.width--80{
+	width: 80%;
+}
 //x
 //y
 //z
