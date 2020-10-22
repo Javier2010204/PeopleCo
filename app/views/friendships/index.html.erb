@@ -1,0 +1,19 @@
+<div class="row center-xs">
+	<div class="col-xs-12 col-md-8">
+		<div class="box card">
+			<h1 class="title black-text">Solicitudes de amistad</h1>
+				----------------------------------
+				<p>Mis solicitudes pendientes</p>
+				<%= render @pending_requests%>
+			-----------------------------------------
+				<p>Solicitudes de amistad</p>
+				<%= render @pending_friendships%>
+			------------------------------------------
+				<p>Amigos</p>
+				<%= render @accepted_friendships%>
+			------------------------------------------
+				<p>Solicitudes rechazadas</p>
+				<%= render @rejected_friendships%>
+		</div>
+	</div>
+</div>

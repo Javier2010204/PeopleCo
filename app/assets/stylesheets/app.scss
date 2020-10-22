@@ -21,6 +21,19 @@
 	@extend .z-depth;
 	@extend .round--25;
 }
+.cover{
+	background-size: cover;
+	background-position: center;
+	height: 300px;
+}
+#comment{
+	@extend .card;
+	@extend .top-space;
+	padding: 20px;
+}
+.circle{
+	border-radius: 50%;
+}
 //d
 .dropdown{
 	@extend .relative;
@@ -126,6 +139,9 @@
 
 //q
 //r
+.radius--15{
+	border-radius: 15px;
+}
 .round--25{
 	border-radius: 25px;
 }

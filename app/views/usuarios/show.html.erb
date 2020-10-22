@@ -1,4 +1,52 @@
-<%= @usuario.email %>
-<% @usuario.photos.each do |photo|%>
-    <%= image_tag photo, height:"100"%>
-<%end%>
+<div class="row top-space center-xs">
+	<div class="col-xs-10 col-md-8">
+		<div class="box card">
+			<% if @usuario.covers.attached? %>
+				<div class="row center-xs cover radius--15 middle-xs" style="background-image:url(<%= url_for(@usuario.covers)%>); height: 300px;">
+					<div class="col-xs-12 col-md-4">
+						<div class="box">
+							<% if @usuario.photos.attached? %>
+								<%= circle_img(@usuario.photos,200)%>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+			<div class="row middle-xs">
+				<div class="col-xs-12 col-sm-7">
+					<div class="box">
+						<h4 class="title black-text bold"><%= @usuario.username %></h4>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<div class="box" id="solicitud">
+						<% unless @are_friends%>
+							<%= button_to friendships_path(friend_id: @usuario.id), method: :post, remote: true, :"data-type" => "script", class: "btn btn--yellow" do%>
+								<i class="fa fa-user-plus"></i>
+								Agregar a mis amigos
+							<%end%>
+							<div class="toast">
+								
+							</div>
+						<%end%>
+					</div>
+				</div>
+			</div>
+			<div class="row middle-xs">
+				<div class="col-xs-12 col-md-6">
+					<div class="box">
+						<p><%= @usuario.posts.count %> Post</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<div class="box">
+						Amigos
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+

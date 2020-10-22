@@ -1,39 +1,47 @@
-<h2>Sign up</h2>
+<div class="row full-height login-background center-xs middle-xs" id="login">
+	<div class="col-xs-10 col-md-6">
+		<div class="box card">
+			<div class="top-space--2 black-text">
+				<h2 class="title no-margin underline">Crear Cuenta</h2>
+        		<p>Comparte tus ideas para crecer, colaborar y llegar mas lejos con tus proyectos</p>
+			</div>
+			<div class="top-space--2">
+				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+				  <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+				  <div class="form-group">
+					<%= f.email_field :email,placeholder: "Correo electronico", autofocus: true, autocomplete: "email", class: "form-control" %>
+				  </div>
+				  <div class="form-group">
+					<%= f.password_field :password, autocomplete: "new-password", placeholder: "Contraseña", class: "form-control" %>
+				  </div>
 
-  <div class="field">
-	<%= f.label :email %><br />
-	<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+				  <div class="form-group">
+					<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirma la contraseña", class: "form-control" %>
+				  </div>
 
-  <div class="field">
-	<%= f.label :password %>
-	<% if @minimum_password_length %>
-	<em>(<%= @minimum_password_length %> characters minimum)</em>
-	<% end %><br />
-	<%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+				  <div class="form-group">
+					<%= f.text_field :username, autofocus: true, placeholder: "Nombre de Usuario", class: "form-control" %>
+				  </div>
 
-  <div class="field">
-	<%= f.label :password_confirmation %><br />
-	<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+				  <div class="top-space">
+					<%= f.submit "Crear cuenta", class: "btn btn--yellow black-text" %>
+				  </div>
+				<% end %>
+				<div class="top-space--2 links">
+					Ya tengo cuenta <%= link_to "  Ingresar aqui", new_session_path(resource_name) , class: "" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-  <div class="field">
-	<%= f.label :name %><br />
-	<%= f.text_field :name, autofocus: true%>
-  </div>
 
-  <div class="field">
-	<%= f.label :username %><br />
-	<%= f.text_field :username, autofocus: true%>
-  </div>
 
-  <div class="actions">
-	<%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+
+
+

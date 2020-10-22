@@ -3,7 +3,7 @@ class UsuariosController < ApplicationController
 	before_action :set_usuario
 
 	def show
-		
+		@are_friends = current_user.my_friend?(@usuario)
 	end
 
 	def edit
@@ -14,6 +14,7 @@ class UsuariosController < ApplicationController
 		respond_to	do |format|
 			if @usuario.update(usuario_params)
 				@usuario.photos.attach(params[:user][:my_photos])
+				@usuario.covers.attach(params[:user][:my_cover])
 				format.html{render :show}
 			else
 				format.html{redirect_to @usuario, notice: @usuario.errors.full_messages}
@@ -28,6 +29,8 @@ class UsuariosController < ApplicationController
 		end
 
 		def usuario_params
-			params.require(:user).permit(:my_photos, :username)
+			params.require(:user).permit(:my_photos, :username, :my_cover)
 		end
 end
+
+

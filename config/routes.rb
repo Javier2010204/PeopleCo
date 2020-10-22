@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
  	devise_for :users
-
  	resources :usuarios, as: :users, only: [:show, :update, :edit]
+ 	resources :friendships, only:[:create, :index, :update]
 
 	authenticated :user do
 		root 'home#index', as: :authenticated_root
-		resources :posts do
-			resources :comments
-		end
+	end
+
+	resources :posts do
+		resources :comments
 	end
 
 	unauthenticated :user do

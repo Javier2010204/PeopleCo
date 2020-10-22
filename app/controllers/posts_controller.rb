@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = current_user.posts
+    if current_user.admin?
+      @posts = Post.all
+    else
+      @posts = current_user.posts
+    end
   end
 
   # GET /posts/1

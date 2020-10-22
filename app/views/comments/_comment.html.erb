@@ -1,6 +1,19 @@
-<li id="comment" class="card top-space">
-	<%= comment.user.username %>
-	<%= comment.body %>
-	<%= link_to "eliminar", post_comment_path(comment), method: :delete , class: "" %>
-	<%= link_to "editar", edit_post_comment_path(comment), class: "" %>
-</li>
+<div class="row" id="comment">
+	<div class="col-xs-12 col-sm-4">
+		<div class="box">
+			<%= comment.user.username %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<div class="box">
+			<%= comment.body %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2">
+		<div class="box">
+			<%= link_to "eliminar", post_comment_path(comment), method: :delete , class: "" %>
+			<%= link_to "editar", edit_post_comment_path(comment), class: "" %>
+		</div>
+	</div>
+</div>
+
