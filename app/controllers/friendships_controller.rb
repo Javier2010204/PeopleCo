@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
 	before_action :find_friend, except:[:index, :update]
 	before_action :find_friendship, only: [:update]
-
+	
 	def create
 		@friendship = Friendship.new(user: current_user, friend: @friend)
 
