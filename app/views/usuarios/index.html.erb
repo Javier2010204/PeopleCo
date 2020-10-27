@@ -1,0 +1,8 @@
+<ul>
+	<% @usuarios.each do |usuario| %>
+		<li>
+			<%= link_to usuario.username, usuario , class: "" %>
+		</li>
+	<% end %>
+</ul>
+<%= link_to "Crear Usuario", new_user_path , class: "" %>

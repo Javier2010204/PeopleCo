@@ -10,6 +10,11 @@ class HomeController < ApplicationController
 
 	end
 
+	def dashboard
+		 authorize! :access, "dashboard"
+	end
+	
+
 	protected
 		def set_layout
 			return "landing" if action_name == "unregistered"

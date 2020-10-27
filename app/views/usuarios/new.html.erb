@@ -1,0 +1,13 @@
+<h1>Crear nuevo usuario</h1>
+<%= form_for(@user) do |f| %>
+	<% if @user.errors.any? %>
+		<% @user.errors.full_messages.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	<% end %>
+
+	<%= f.text_field :email, placeholder: "correo electronico"%>
+	<%= f.text_field :username, placeholder: "nombre de usuario"%>
+	<%= f.text_field :password, placeholder: "contraseña"%>
+	<%= f.submit "Guardar" %>
+<% end %>

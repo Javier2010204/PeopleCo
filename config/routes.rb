@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
  	devise_for :users
- 	resources :usuarios, as: :users, only: [:show, :update, :edit]
- 	resources :friendships, only:[:create, :index, :update]
+ 	resources :usuarios, as: :users, only: [:show, :update, :edit, :index, :new, :create]
+	resources :friendships, only:[:create, :index, :update]
+	get "dashboard", to: "home#dashboard"
 
 	authenticated :user do
 		root 'home#index', as: :authenticated_root

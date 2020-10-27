@@ -1,9 +1,30 @@
 class UsuariosController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_usuario
+	before_action :set_usuario, except: [:index, :new, :create]
 
 	def show
 		@are_friends = current_user.my_friend?(@usuario)
+	end
+
+	def index
+		@usuarios = User.all
+		authorize! :manage, User, :all
+	end
+
+	def new
+		@user = User.new
+	end
+
+	def create
+		@user = User.new(usuario_params)
+
+		respond_to do |format|
+			if @user.save
+				format.html{redirect_to @user, notice: 'se guardo exitosamente'}
+			else
+				format.html{render :new, alert: 'error al guardar el usuario'}
+			end
+		end
 	end
 
 	def edit
@@ -29,7 +50,7 @@ class UsuariosController < ApplicationController
 		end
 
 		def usuario_params
-			params.require(:user).permit(:my_photos, :username, :my_cover)
+			params.require(:user).permit(:my_photos, :username, :my_cover, :email, :password)
 		end
 end
 

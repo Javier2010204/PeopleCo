@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if current_user.admin?
-      @posts = Post.all
+      @posts = Post.reported
     else
       @posts = current_user.posts
     end
@@ -49,7 +49,12 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+
     respond_to do |format|
+      if params[:status] == "1"
+        @post.report!
+        format.html{redirect_to @post}
+      end
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
@@ -78,6 +83,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:body,)
+      params.permit(:body,:status)
     end
 end

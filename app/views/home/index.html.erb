@@ -1,16 +1,20 @@
-<div class="row center-xs top-space">
-	<div class="col-xs-12 col-sm-10 col-md-8">
-		<div class="box">
-			<%= render 'posts/form' %>
-		</div>
-	</div>
-</div>
-<div class="row center-xs top-space">
-	<div class="col-xs-12 col-sm-10 col-md-8">
-		<div class="box">
-			<div id="posts" class="top-space">
-				<%= render @posts %>
+<% if can? :access, "dashboard" %>
+	<%= render "dashboard" %>
+<% else %>
+	<div class="row center-xs top-space">
+		<div class="col-xs-12 col-sm-10 col-md-8">
+			<div class="box">
+				<%= render 'posts/form' %>
 			</div>
 		</div>
 	</div>
-</div>
+	<div class="row center-xs top-space">
+		<div class="col-xs-12 col-sm-10 col-md-8">
+			<div class="box">
+				<div id="posts" class="top-space">
+					<%= render @posts %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
