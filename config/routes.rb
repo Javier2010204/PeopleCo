@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  	get 'search/create'
+  	get 'search/buscador', as: :search
  	devise_for :users
  	resources :usuarios, as: :users, only: [:show, :update, :edit, :index, :new, :create]
 	resources :friendships, only:[:create, :index, :update]

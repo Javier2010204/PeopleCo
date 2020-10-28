@@ -14,6 +14,12 @@
     <% if user_signed_in? %>
       <%= render 'partials/navigation'  %>
     <%end%>
+    <div style="display:<%= 'none' if alert.nil? && notice.nil?%>" class="black">
+      <p class="white-text">
+        <%= alert%>
+        <%= notice%>
+      </p>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -3,6 +3,17 @@
 @import "flexboxgrid";
 
 //a
+.admin-option{
+	@extend .large-padding;
+	width: 300px;
+	height: 300px;
+	a{
+		@extend .no-decoration;
+		@extend .bold;
+		@extend .white-text;
+		@extend .text-medium;
+	}
+}
 //b
 .btn{
 	@extend .bold;
@@ -130,6 +141,10 @@
 			}
 			&:nth-child(1){
 				@extend .bold;
+			}
+			#form-search{
+				@extend .underline;
+				padding: 14px 16px;
 			}
 		}
 	}

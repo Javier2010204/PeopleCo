@@ -2,8 +2,20 @@
 	<div class="col-xs-12">
 		<div class="box">
 			<h1 class="title black-text">Admin Dashboard</h1>
-			<%= link_to "Post", posts_path , class: "" %>
-			<%= link_to "usuarios", users_path, class: "" %>
+			<div class="row center-xs">
+				<div class="col-xs-12 col-md-3">
+					<div class="box admin-option blue">
+						<div class="middle-xs full-height">
+							<%= link_to "Publicaciones reportadas", posts_path , class: "" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-3">
+					<div class="box admin-option yellow">
+						<%= link_to "Usuarios", users_path, class: "" %>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

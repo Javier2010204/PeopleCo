@@ -1,0 +1,9 @@
+<%= form_tag 'search/create', method: :get, remote: true, id: 'form-search' do %>
+    <%= text_field_tag :keyword, nil, placeholder: 'busca a un amigo' %>
+    <%= content_tag :button, type: :submit do %>
+        Buscar
+    <% end %>
+<% end %>
+
+<div id="resultados">
+</div>

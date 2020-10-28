@@ -17,10 +17,16 @@
 								<button class="dropbtn">
 									<i class="fa fa-ellipsis-v"></i>
 								</button>
-								<div class="dropcontent">
-									<%= link_to "Eliminar", post_path(post), method: :delete , class: "" %>
-									<%= link_to "Editar", edit_post_path(post), class: "" %>	
-								</div>
+								<% if current_user.admin %>
+									<div class="dropcontent">
+										<%= link_to "Bloquear", post_path(post, status:"2"), method: :patch , class: "" %>
+									</div>
+								<% else %>
+									<div class="dropcontent">
+										<%= link_to "Eliminar", post_path(post), method: :delete , class: "" %>
+										<%= link_to "Editar", edit_post_path(post), class: "" %>	
+									</div>
+								<% end %>
 							</div>
 						<% elsif can? :update, post %>
 							<div class="dropdown">
@@ -41,6 +47,9 @@
 				<div class="col-xs-12">
 					<div class="box">
 						<%= link_to post.body, post, class: "big-text bold no-decoration black-text" %>
+						<div class="top-space">
+							<p class="small-text gray-text"><%= post.status %></p>
+						</div>
 					</div>
 				</div>
 			</div>

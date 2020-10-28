@@ -7,9 +7,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if current_user.admin?
-      @posts = Post.reported
+      @reported_posts = Post.reported
     else
-      @posts = current_user.posts
+      @user_posts = current_user.posts
     end
   end
 
@@ -53,7 +53,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       if params[:status] == "1"
         @post.report!
-        format.html{redirect_to @post}
+        format.html{redirect_to @post, notice: 'La publicacion fue reportada'}
+      elsif params[:status] == "2"
+        @post.to_block!
+        format.html{redirect_to @post, notice: 'La publicacion fue bloqueada'}
       end
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
